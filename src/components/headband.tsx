@@ -5,7 +5,7 @@ function Headband() {
         <div className="headband-bar">
             <nav className="headband-item-container">
                 <div className="headband-item-1 home-link headband-nav-item">
-                    <NavLink to="/">
+                    <NavLink to="/Portfolio">
                         Home
                     </NavLink>
                 </div>
