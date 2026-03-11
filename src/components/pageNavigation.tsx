@@ -16,7 +16,7 @@ function PageNavigation() {
             <BrowserRouter>
                 <Routes>
                     <Route element={<App />}>
-                        <Route index element={<BasePage />} />
+                        <Route index path="Portfolio" element={<BasePage />} />
                         <Route path="test" element={<TestPage />} />
                         <Route path="nested" element={<NestedTestPage />} />
                         <Route path="stories">
