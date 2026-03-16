@@ -8,9 +8,8 @@ function RandomNameGenerator() {
     const chosenLastName = lastNameDB[Math.floor(Math.random() * (lastNameDB.length - 0 + 1) + 0)]
 
     const chosenName = () => {
-        let chosenFirstName
         if (chosenFemaleFirst.length >= chosenMaleFirst.length) {
-            return chosenFirstName = chosenFemaleFirst
+            return chosenFemaleFirst;
         }
         return chosenMaleFirst
     }
