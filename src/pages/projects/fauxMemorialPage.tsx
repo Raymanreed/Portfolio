@@ -1,4 +1,4 @@
-import RandomNameGenerator from '../../components/nameGeneration';
+// import RandomNameGenerator from '../../components/nameGeneration';
 
 function FauxMemorial() {
     const monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -43,7 +43,7 @@ function FauxMemorial() {
     return (
         <div>
             <h2>With the Angles Now</h2>
-            <h3>{RandomNameGenerator()}</h3>
+            {/* <h3>{RandomNameGenerator()}</h3> */}
             <h3>Forever in our hearts</h3>
             <div>
                 <img src="https://thispersondoesnotexist.com/" alt="Loading..." decoding="async" height={300} width={300} />
