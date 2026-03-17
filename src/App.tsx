@@ -4,10 +4,10 @@ import Headband from './components/headband'
 
 function App() {
   return (
-    <>
+    <div>
       <Headband />
       <Outlet />
-    </>
+    </div>
   )
 }
 
