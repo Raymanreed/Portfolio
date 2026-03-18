@@ -13,9 +13,6 @@ function RandomNameGenerator() {
         }
         return chosenMaleFirst
     }
-
-    console.log("FEMALE: ", chosenFemaleFirst, "MALE: ", chosenMaleFirst)
-
     return `${chosenName()} ${chosenLastName}`
 }
 
