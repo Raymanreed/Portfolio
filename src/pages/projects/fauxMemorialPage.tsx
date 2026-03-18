@@ -6,6 +6,7 @@ function FauxMemorial() {
     const birthYearRange = { min: 1960, max: 2015 };
     const deathYearRange = { min: 1972, max: 2025 };
     const leapYears = [1960,1964,1968,1972,1976,1980,1984,1988,1992,1996,2000,2004,2008,2012,2016,2020,2024]
+    const randomName = RandomNameGenerator()
 
     function yearGenerator() {
         const deathYear = Math.floor(Math.random() * (deathYearRange.max - deathYearRange.min + 1) + deathYearRange.min)
@@ -39,16 +40,17 @@ function FauxMemorial() {
         };
         return [`${monthArray[monthGen[0]]} ${dayGen()}, ${yearGen[0]}`, `${monthArray[monthGen[1]]} ${dayGen()}, ${yearGen[1]}`];
     }
+    const fullYearDisplay = generateMonthDayYear().join(' - ')
 
     return (
         <div>
             <h2>With the Angles Now</h2>
-            <h3>{RandomNameGenerator()}</h3>
+            <h3>{randomName}</h3>
             <h3>Forever in our hearts</h3>
             <div>
                 <img src="https://thispersondoesnotexist.com/" alt="Loading..." decoding="async" height={300} width={300} />
             </div>
-            <h3>{generateMonthDayYear().join(' - ')}</h3>
+            <h3>{fullYearDisplay}</h3>
         </div>
     )
 };
