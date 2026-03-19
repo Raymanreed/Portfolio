@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router";
+import { HashRouter, Route, Routes } from "react-router";
 import App from '../App.tsx'
 import TestPage from '../pages/testPages.tsx'
 import NestedTestPage from '../pages/nestedTestPage.tsx'
@@ -12,10 +12,10 @@ import StoryboardTool from "../pages/projects/storyboardHelper.tsx";
 
 function PageNavigation() {
     return (
-        <>
-            <BrowserRouter>
+        <div>
+            <HashRouter>
                 <Routes>
-                    <Route element={<App />}>
+                    <Route element={<App />} path="/">
                         <Route index path="Portfolio" element={<BasePage />} />
                         <Route path="test" element={<TestPage />} />
                         <Route path="nested" element={<NestedTestPage />} />
@@ -31,8 +31,8 @@ function PageNavigation() {
                         </Route>
                     </Route>
                 </Routes>
-            </BrowserRouter>
-        </>
+            </HashRouter>
+        </div>
     )
 }
 
