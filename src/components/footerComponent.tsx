@@ -8,12 +8,11 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
     import.meta.url,
   ).toString();
 
-function BasePage() {
+function FooterComponent() {
     const [displayResume, setDisplayResume] = useState<Boolean>(false);
 
     return (
-        <>
-            <h2>This is the base page</h2>
+        <div className="footer-container">
             <div onClick={() => {setDisplayResume(!displayResume)}}>
                 {!displayResume ? 'View Resume' : 'Hide'}
             </div>
@@ -30,8 +29,8 @@ function BasePage() {
                 </div>
             }
             <a href={resume} download>Download</a>
-        </>
+        </div>
     )
 }
 
-export default BasePage;
+export default FooterComponent;
