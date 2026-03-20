@@ -19,8 +19,13 @@ body {
   display: flex;
   flex-flow: row nowrap;
   overflow-x: scroll;
-  justify-content: space-between;
+  justify-content: center;
   width: 100vw;
+}
+
+.footer-container {
+  padding-top: 30px;
+  position: relative;
 }
 
 .resume-renderContainer {
