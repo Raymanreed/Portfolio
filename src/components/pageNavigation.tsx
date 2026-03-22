@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes } from "react-router";
+import { BrowserRouter, Route, Routes } from "react-router";
 import App from '../App.tsx'
 import ProjectHome from "../pages/projects/projectHome.tsx";
 import LoopDemoPage from "../pages/projects/loopingDemoPage.tsx";
@@ -8,10 +8,10 @@ import StoryboardTool from "../pages/projects/storyboardHelper.tsx";
 function PageNavigation() {
     return (
         <div>
-            <HashRouter>
+            <BrowserRouter>
                 <Routes>
-                    <Route element={<App />} path="/">
-                        <Route path="projects">
+                    <Route element={<App />}>
+                        <Route>
                             <Route index element={<ProjectHome />} />
                             <Route path="loops" element={<LoopDemoPage />} />
                             <Route path="memorial" element={<FauxMemorial />} />
@@ -19,7 +19,7 @@ function PageNavigation() {
                         </Route>
                     </Route>
                 </Routes>
-            </HashRouter>
+            </BrowserRouter>
         </div>
     )
 }
