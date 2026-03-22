@@ -11,7 +11,7 @@ function PageNavigation() {
             <BrowserRouter>
                 <Routes>
                     <Route element={<App />}>
-                        <Route>
+                        <Route path="/portfolio">
                             <Route index element={<ProjectHome />} />
                             <Route path="loops" element={<LoopDemoPage />} />
                             <Route path="memorial" element={<FauxMemorial />} />
