@@ -8,10 +8,10 @@ import StoryboardTool from "../pages/projects/storyboardHelper.tsx";
 function PageNavigation() {
     return (
         <div>
-            <BrowserRouter>
+            <BrowserRouter basename="/portfolio">
                 <Routes>
                     <Route element={<App />}>
-                        <Route path="/portfolio">
+                        <Route>
                             <Route index element={<ProjectHome />} />
                             <Route path="loops" element={<LoopDemoPage />} />
                             <Route path="memorial" element={<FauxMemorial />} />
