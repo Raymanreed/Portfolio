@@ -5,7 +5,7 @@ import FooterComponent from './components/footerComponent'
 
 function App() {
   return (
-    <div>
+    <div className="main-page">
       <Headband />
       <Outlet />
       <FooterComponent />

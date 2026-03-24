@@ -29,9 +29,8 @@ function StoryboardTool() {
             <div className="storyboardCentering">
                 {generatedElements.map((num) =>
                     <>
-                        <h2>{num}</h2>
                         <div className="storybardSegmentContainer">
-                            <textarea rows={5} cols={50} id={`id-${num}`} />
+                            <textarea rows={5} cols={50} id={`id-${num}`} className={`textbox-${num} gen-textbox`} />
                             <select value={selectedChoices[-1]} onChange={handleSelectChoice} className="linkingDropdown">
                                 {options.map((option) => (
                                     <option key={option.value} value={option.value}>
