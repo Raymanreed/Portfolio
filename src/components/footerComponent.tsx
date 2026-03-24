@@ -13,6 +13,7 @@ function FooterComponent() {
 
     return (
         <div className="footer-container">
+            <a href={resume} download>View Resume</a>
             <div onClick={() => {setDisplayResume(!displayResume)}}>
                 {!displayResume ? 'View Resume' : 'Hide'}
             </div>
@@ -28,7 +29,6 @@ function FooterComponent() {
                     </Document>
                 </div>
             }
-            <a href={resume} download>Download</a>
         </div>
     )
 }

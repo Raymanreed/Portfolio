@@ -1,4 +1,9 @@
 body {
+  background-size: cover;
+  background-image: url('/MtHoodSunset.jpg');
+  background-repeat: no-repeat;
+  background-color: #166890;
+  height: 100vh;
   justify-content: center;
 }
 
@@ -8,6 +13,11 @@ body {
   text-align: center;
   height: 100vh;
   width: 90vw;
+  overflow: scroll;
+}
+
+.main-page {
+  color: #000;
 }
 
 .headband-bar {
@@ -57,6 +67,11 @@ body {
   width: 15%;
 }
 
+.gen-textbox {
+  color: #000;
+  background-color: transparent;
+}
+
 .project-navigation-container {
   align-items: center;
   display: flex;
@@ -65,14 +80,14 @@ body {
 }
 
 .project-navigation {
-  background-image: linear-gradient(to right, rgba(36, 36, 36), rgba(87, 113, 150, 1), rgba(36, 36, 36));
+  background-image: linear-gradient(to right, rgba(36, 36, 36, 0), rgba(87, 113, 150, 1), rgba(36, 36, 36, 0));
   border: 1px #fff;
-  color: #fff;
+  color: #000;
   font-size: 24px;
   width: 35%;
 }
 
 .project-navigation:hover {
   background-image: linear-gradient(to right, rgba(87, 113, 150, 0.144), rgba(87, 113, 150, 1), rgba(87, 113, 150, 0.144));
-  color: #fff;
+  color: #000;
 }

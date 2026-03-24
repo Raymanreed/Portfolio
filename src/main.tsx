@@ -5,7 +5,7 @@ import PageNavigation from './components/pageNavigation.tsx'
 
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <PageNavigation />
-  </StrictMode>
+    <StrictMode>
+      <PageNavigation />
+    </StrictMode>
 )
