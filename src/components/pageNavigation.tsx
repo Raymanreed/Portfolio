@@ -4,6 +4,7 @@ import ProjectHome from "../pages/projects/projectHome.tsx";
 import LoopDemoPage from "../pages/projects/loopingDemoPage.tsx";
 import FauxMemorial from "../pages/projects/fauxMemorialPage.tsx";
 import StoryboardTool from "../pages/projects/storyboardHelper.tsx";
+import HouseExploration from "../pages/projects/houseExplorationPage.tsx";
 
 function PageNavigation() {
     return (
@@ -16,6 +17,7 @@ function PageNavigation() {
                             <Route path="loops" element={<LoopDemoPage />} />
                             <Route path="memorial" element={<FauxMemorial />} />
                             <Route path="storyboard" element={<StoryboardTool />} />
+                            <Route path="house" element={<HouseExploration />} />
                         </Route>
                     </Route>
                 </Routes>

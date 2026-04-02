@@ -1,7 +1,49 @@
 import { useState } from 'react';
 
+interface houseLayout {
+    entrance: {
+        connectingRooms: Array<string>;
+    },
+    backyard: {
+        connectingRooms: Array<string>;
+    },
+    parlor: {
+        connectingRooms: Array<string>;
+    },
+    basement: {
+        connectingRooms: Array<string>;
+    },
+    guestBedroom: {
+        connectingRooms: Array<string>
+    },
+    attic: {
+        connectingRooms: Array<string>
+    },
+    masterBathroom: {
+        connectingRooms: Array<string>
+    },
+    foyer: {
+        connectingRooms: Array<string>
+    },
+    livingRoom: {
+        connectingRooms: Array<string>
+    },
+    kitchen: {
+        connectingRooms: Array<string>
+    },
+    diningRoom: {
+        connectingRooms: Array<string>
+    },
+    upstairs: {
+        connectingRooms: Array<string>
+    },
+    masterBedroom: {
+        connectingRooms: Array<string>
+    }
+}
+
 function HouseExploration() {
-    const [currentLocation, setCurrentLocation] = useState<string>('')
+    const [currentLocation, setCurrentLocation] = useState<string>('foyer')
 
     const houseLayout = {
         entrance: {
@@ -52,6 +94,19 @@ function HouseExploration() {
         </div>
     )
 
+    const handleClick = (connector: string) => {
+        setCurrentLocation(connector)
+        return;
+    }
+
+    const roomAccess = Object.values(houseLayout[currentLocation as keyof houseLayout].connectingRooms).map((connections) => {
+        return (
+        <button onClick={() => handleClick(connections)}>
+            {`${connections}`}
+        </button>
+        )
+    })
+
     const displayRoom = (location: string) => {
         let currentRoom;
         switch (location) {
@@ -64,6 +119,14 @@ function HouseExploration() {
         }
         return currentRoom;
     }
+
+    // const generateControls = (connectingRooms: Array<string>) => {
+    //     const controlButton = (
+    //         <div>
+    //             <button className={``} />
+    //         </div>
+    //     )
+    // }
 
     // const changeRoom = () => {
     //     setCurrentLocation()
@@ -78,7 +141,7 @@ function HouseExploration() {
                 {displayRoom(currentLocation)}
             </div>
             <div className="house-room-choice-container">
-
+                {roomAccess}
             </div>
         </div>
     )
