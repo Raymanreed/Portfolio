@@ -124,8 +124,8 @@ export const HouseLayout: HouseLayout = {
         connectingRooms: ['foyer'],
         messages: ["You're standing at the entrance to the house.","What do you do?"],
         actions: {
-            search: [],
-            use: [],
+            search: ["Look Around", "You see the front of the house."],
+            use: ["Use", "You have nothing to use."],
         }
     },
     backyard: {
