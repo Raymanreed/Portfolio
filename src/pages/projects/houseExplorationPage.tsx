@@ -29,13 +29,13 @@ export const HouseExploration = () => {
             </button>
         )
     })
-    const currentRoomActions = Object.values(currentRoomDynamic.actions).map((actions) => {
-        return (
-            <button onClick={() => handleActions(actions[1])}>
-                {actions[0]}
-            </button>
-        )
-    })
+    // const currentRoomActions = Object.values(currentRoomDynamic.actions).map((actions) => {
+    //     return (
+    //         <button onClick={() => handleActions(actions[1])}>
+    //             {actions[0]}
+    //         </button>
+    //     )
+    // })
     return (
         <div className="house-container">
             <div>
@@ -44,9 +44,9 @@ export const HouseExploration = () => {
             <div className="house-room-display">
                 {RoomTemplateComponent(currentRoomMessages[0], currentRoomMessages[1], currentRoomMessages[2])}
             </div>
-            <div className="house-room-actions">
+            {/* <div className="house-room-actions">
                 {currentRoomActions}
-            </div>
+            </div> */}
             <div className="house-room-choice-container">
                 {currentRoomConnections}
             </div>
