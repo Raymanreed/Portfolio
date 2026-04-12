@@ -4,13 +4,15 @@ import { RoomTemplateComponent } from '../../components/rooms/roomTemplate';
 
 export const HouseExploration = () => {
     const [currentLocation, setCurrentLocation] = useState<string>('entrance')
+    const [currentInventory, setCurrentInventory] = useState<string[]>([])
     const [actionOutput, setActionOutput] = useState<string>()
 
-    const currentInventory: string[] = [];
+    // let currentInventory: string[] = [];
 
     const handleNavigation = (connector: string) => {
         setCurrentLocation(connector)
         setActionOutput('')
+        console.log(currentInventory)
         return;
     }
 
@@ -25,17 +27,29 @@ export const HouseExploration = () => {
         return
     }
 
-    const handleUseAction = (requiredItem?: string, containedItem?: string) => {
+    const handleUseAction = () => {
         if (!currentRoomDynamic.hasItem) {
             setActionOutput("You don't think that there is anything here.")
             return;
         };
-        if (!currentInventory.includes(requiredItem as string)) {
+        if (currentInventory.includes(currentRoomDynamic.items.itemContained)) {
+            setActionOutput("There isn't anything else to do here.")
+            return;
+        }
+        if (currentRoomDynamic.actions.use.requiredItem === undefined && currentRoomDynamic.items.itemContained != "") {
+            setCurrentInventory([...currentInventory, currentRoomDynamic.items.itemContained])
+            // currentInventory.push(currentRoomDynamic.items.itemContained)
+            setActionOutput(currentRoomDynamic.actions.use.message)
+            console.log(currentInventory)
+            return;
+        }
+        if (!currentInventory.includes(currentRoomDynamic.actions.use.requiredItem as string)) {
             setActionOutput("There is something here, but you are missing something needed to get it.")
             return;
         }
-        if (currentInventory.includes(requiredItem as string)) {
-            currentInventory.push(containedItem as string)
+        if (currentInventory.includes(currentRoomDynamic.actions.use.requiredItem as string)) {
+            setCurrentInventory([...currentInventory, currentRoomDynamic.items.itemContained])
+            // currentInventory.push(currentRoomDynamic.items.itemContained as string)
             setActionOutput(currentRoomDynamic.actions.use.message)
             return;
         }
@@ -71,7 +85,7 @@ export const HouseExploration = () => {
                     </button>
                 </div>
                 <div className={`${currentLocation}-use`}>
-                    <button className={`${currentLocation}-use-button`} onClick={() => handleUseAction(currentRoomDynamic.actions.use.requiredItem)}>
+                    <button className={`${currentLocation}-use-button`} onClick={() => handleUseAction()}>
                         {currentRoomDynamic.actions.use.label}
                     </button>
                 </div>
