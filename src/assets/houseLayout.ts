@@ -304,7 +304,7 @@ export const HouseLayout: HouseLayout = {
         actions: {
             search: {
                 label: "Look Around",
-                result: ""
+                result: "You look around the backyard. It's nice out here, there is a patch of dirt that looks recently disturbed and out of place. Perhaps something was buried here?"
             },
             use: {
                 label: "Use",
@@ -325,7 +325,7 @@ export const HouseLayout: HouseLayout = {
         actions: {
             search: {
                 label: "Look Around",
-                result: ""
+                result: "You look around the parlor. The bottles look mostly full and a thin layer of dust covers them. It's obvious that this room is not used very often and you doubt there is much more to see here."
             },
             use: {
                 label: "Use",
@@ -346,17 +346,17 @@ export const HouseLayout: HouseLayout = {
         actions: {
             search: {
                 label: "Look Around",
-                result: ""
+                result: "You glance around at the boxes that populate the space, a layer of dust covers them. You turn your attention towards the safe in the corner. There is a small keyhole."
             },
             use: {
                 label: "Use",
-                requiredItem: undefined,
-                message: ""
+                requiredItem: "Safe Key",
+                message: "You insert the key into the lock and open the safe. Inside you find various papers, documents, a gun, some cash, and an old skeleton-style key."
             },
         },
         items: {
-            itemNeeded: "",
-            itemContained: ""
+            itemNeeded: "Safe Key",
+            itemContained: "Attic Key"
         }
     },
     guestBedroom: {
@@ -367,7 +367,7 @@ export const HouseLayout: HouseLayout = {
         actions: {
             search: {
                 label: "Look Around",
-                result: ""
+                result: "You glance around the room, noting the interesting shadows that the light casts on the wall. Aside from being visually pleasing, there is nothing else of note here."
             },
             use: {
                 label: "Use",
@@ -388,17 +388,17 @@ export const HouseLayout: HouseLayout = {
         actions: {
             search: {
                 label: "Look Around",
-                result: ""
+                result: "You step over to the mannequin and remove the sheet. The form underneath is female and appears to be an art piece of some sort. Various magazine clippings and other graphics are pasted all over it. You notice that there is a large keyhole in the center of it's face that would fit an old-timey key."
             },
             use: {
                 label: "Use",
-                requiredItem: undefined,
-                message: ""
+                requiredItem: "Attic Key",
+                message: "You insert the key into the mannequin's head and turn. The head opens like a clamshell revealing a small, faded photo of two people you don't recognize. You can only assume that these were the owners of the house. You stare at the photo for a few minutes before putting it in your pocket. You notice a small key that looks like it would fit a padlock underneath the photo. You also place this in your pocket."
             },
         },
         items: {
-            itemNeeded: "",
-            itemContained: ""
+            itemNeeded: "Attic Key",
+            itemContained: "Trunk Key"
         }
     },
     masterBathroom: {
@@ -409,7 +409,7 @@ export const HouseLayout: HouseLayout = {
         actions: {
             search: {
                 label: "Look Around",
-                result: ""
+                result: "You look around the master bathroom. It's a bathroom and you don't see anything of note here."
             },
             use: {
                 label: "Use",
@@ -430,7 +430,7 @@ export const HouseLayout: HouseLayout = {
         actions: {
             search: {
                 label: "Look Around",
-                result: ""
+                result: "You are standing in the entryway of the house. The living room, kitchen, and parlor are visible from where you stand. A small table with a bowl for keys sits against the wall. It is empty."
             },
             use: {
                 label: "Use",
@@ -451,17 +451,17 @@ export const HouseLayout: HouseLayout = {
         actions: {
             search: {
                 label: "Look Around",
-                result: ""
+                result: "You look at the living room. It's a bit dated judging by the floral pattern on the couch. You notice a short shovel in the corner of the room."
             },
             use: {
-                label: "Use",
+                label: "Pick Up Shovel",
                 requiredItem: undefined,
-                message: ""
+                message: "You walk over to the shovel and pick it up."
             },
         },
         items: {
             itemNeeded: "",
-            itemContained: ""
+            itemContained: "Shovel"
         }
     },
     kitchen: {
@@ -472,17 +472,17 @@ export const HouseLayout: HouseLayout = {
         actions: {
             search: {
                 label: "Look Around",
-                result: ""
+                result: "You look at the kitchen. It's a bit small, but tidy and clean. You briefly look through the drawers. In one of them you spot a small key."
             },
             use: {
                 label: "Use",
                 requiredItem: undefined,
-                message: ""
+                message: "You pick up the small key and stick it in your pocket. You never know when it might be useful!"
             },
         },
         items: {
             itemNeeded: "",
-            itemContained: ""
+            itemContained: "Master Bedroom Key"
         }
     },
     diningRoom: {
@@ -493,7 +493,7 @@ export const HouseLayout: HouseLayout = {
         actions: {
             search: {
                 label: "Look Around",
-                result: ""
+                result: "You look around the small dining room. The table is not set, but the surface is clean. The china and tableware looks dusty. There isn't anything here."
             },
             use: {
                 label: "Use",
@@ -514,7 +514,7 @@ export const HouseLayout: HouseLayout = {
         actions: {
             search: {
                 label: "Look Around",
-                result: ""
+                result: "You look at the small hallway. It's mostly doors. You briefly open the closet only to find that it is packed with blankets."
             },
             use: {
                 label: "Use",
@@ -528,24 +528,24 @@ export const HouseLayout: HouseLayout = {
         }
     },
     masterBedroom: {
-        label: "Master Bathroom",
+        label: "Master Bedroom",
         connectingRooms: ['upstairs', 'masterBathroom'],
         hasItem: true,
         messages: ["You step into the master bedroom.", "It is large and spacious with a king-sized bed sitting in the center, adorned by matching endtables with additional matching lamps. The bed is made. You can see a door to the master bathroom from where you stand."],
         actions: {
             search: {
                 label: "Look Around",
-                result: ""
+                result: "You look around the spacious room. It is neat and tidy. You notice that one of the end table drawers is locked. It looks like a small key could fit it."
             },
             use: {
                 label: "Use",
-                requiredItem: undefined,
-                message: ""
+                requiredItem: "Master Bedroom Key",
+                message: "You insert the key you found in the kitchen and the drawer unlocks easily. Inside you see some medicine bottles and another small key. You pick up the key and place it in your pocket."
             },
         },
         items: {
-            itemNeeded: "",
-            itemContained: ""
+            itemNeeded: "Master Bedroom Key",
+            itemContained: "Safe Key"
         }
     }
 };
