@@ -307,7 +307,7 @@ export const HouseLayout: HouseLayout = {
                 result: "You look around the backyard. It's nice out here, there is a patch of dirt that looks recently disturbed and out of place. Perhaps something was buried here?"
             },
             use: {
-                label: "Use",
+                label: "Pick up shovel",
                 requiredItem: "Shovel",
                 message: "You plunge the shovel into the dirt. After a few minutes of digging, you hear a loud thump and hit something solid. Clearing the dirt away, you see that it is an old trunk with a padlock on the front."
             },
@@ -349,7 +349,7 @@ export const HouseLayout: HouseLayout = {
                 result: "You glance around at the boxes that populate the space, a layer of dust covers them. You turn your attention towards the safe in the corner. There is a small keyhole."
             },
             use: {
-                label: "Use",
+                label: "Unlock Safe",
                 requiredItem: "Safe Key",
                 message: "You insert the key into the lock and open the safe. Inside you find various papers, documents, a gun, some cash, and an old skeleton-style key."
             },
@@ -391,7 +391,7 @@ export const HouseLayout: HouseLayout = {
                 result: "You step over to the mannequin and remove the sheet. The form underneath is female and appears to be an art piece of some sort. Various magazine clippings and other graphics are pasted all over it. You notice that there is a large keyhole in the center of it's face that would fit an old-timey key."
             },
             use: {
-                label: "Use",
+                label: "Insert Key",
                 requiredItem: "Attic Key",
                 message: "You insert the key into the mannequin's head and turn. The head opens like a clamshell revealing a small, faded photo of two people you don't recognize. You can only assume that these were the owners of the house. You stare at the photo for a few minutes before putting it in your pocket. You notice a small key that looks like it would fit a padlock underneath the photo. You also place this in your pocket."
             },
@@ -475,7 +475,7 @@ export const HouseLayout: HouseLayout = {
                 result: "You look at the kitchen. It's a bit small, but tidy and clean. You briefly look through the drawers. In one of them you spot a small key."
             },
             use: {
-                label: "Use",
+                label: "Pickup Key",
                 requiredItem: undefined,
                 message: "You pick up the small key and stick it in your pocket. You never know when it might be useful!"
             },
@@ -538,7 +538,7 @@ export const HouseLayout: HouseLayout = {
                 result: "You look around the spacious room. It is neat and tidy. You notice that one of the end table drawers is locked. It looks like a small key could fit it."
             },
             use: {
-                label: "Use",
+                label: "Unlock Nightstand",
                 requiredItem: "Master Bedroom Key",
                 message: "You insert the key you found in the kitchen and the drawer unlocks easily. Inside you see some medicine bottles and another small key. You pick up the key and place it in your pocket."
             },
