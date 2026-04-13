@@ -6,17 +6,15 @@ export const HouseExploration = () => {
     const [currentLocation, setCurrentLocation] = useState<string>('entrance')
     const [currentInventory, setCurrentInventory] = useState<string[]>([])
     const [actionOutput, setActionOutput] = useState<string>()
-
-    // let currentInventory: string[] = [];
+    const [hasSearched, setSearched] = useState<boolean>(false)
 
     const handleNavigation = (connector: string) => {
         setCurrentLocation(connector)
         setActionOutput('')
+        setSearched(false)
         console.log(currentInventory)
         return;
     }
-
-    
 
     // Gets the current room's properties from the HouseLayout object.
     // Shortened to a variable to make easier to read.
@@ -24,6 +22,7 @@ export const HouseExploration = () => {
 
     const handleSearchAction = (output: string) => {
         setActionOutput(output)
+        setSearched(true)
         return
     }
 
@@ -38,7 +37,6 @@ export const HouseExploration = () => {
         }
         if (currentRoomDynamic.actions.use.requiredItem === undefined && currentRoomDynamic.items.itemContained != "") {
             setCurrentInventory([...currentInventory, currentRoomDynamic.items.itemContained])
-            // currentInventory.push(currentRoomDynamic.items.itemContained)
             setActionOutput(currentRoomDynamic.actions.use.message)
             console.log(currentInventory)
             return;
@@ -49,7 +47,6 @@ export const HouseExploration = () => {
         }
         if (currentInventory.includes(currentRoomDynamic.actions.use.requiredItem as string)) {
             setCurrentInventory([...currentInventory, currentRoomDynamic.items.itemContained])
-            // currentInventory.push(currentRoomDynamic.items.itemContained as string)
             setActionOutput(currentRoomDynamic.actions.use.message)
             return;
         }
@@ -84,12 +81,14 @@ export const HouseExploration = () => {
                         {currentRoomDynamic.actions.search.label}
                     </button>
                 </div>
-                <div className={`${currentLocation}-use`}>
-                    <button className={`${currentLocation}-use-button`} onClick={() => handleUseAction()}>
-                        {currentRoomDynamic.actions.use.label}
-                    </button>
-                </div>
-                
+                {!(currentRoomDynamic.hasItem && hasSearched) ? <></>
+                    :
+                    <div className={`${currentLocation}-use`}>
+                        <button className={`${currentLocation}-use-button`} onClick={() => handleUseAction()}>
+                            {currentRoomDynamic.actions.use.label}
+                        </button>
+                    </div>
+                }
             </div>
             <div className="house-room-choice-container">
                 {currentRoomConnections}
