@@ -58,7 +58,7 @@ export const HouseExploration = () => {
 
     const currentRoomConnections = Object.values(currentRoomDynamic.connectingRooms).map((connections) => {
         return (
-            <button onClick={() => handleNavigation(connections)}>
+            <button className="navigation-button" onClick={() => handleNavigation(connections)}>
                 {`${HouseLayout[connections as keyof HouseLayout].label}`}
             </button>
         )
@@ -66,35 +66,43 @@ export const HouseExploration = () => {
     
     return (
         <div className="house-container">
-            <div className="house-display-main">
-                <div>
-                    <h2>{`You are currently in: ${currentRoomLabel}`}</h2>
+            <div className="house-room-choice-container">
+                <div className="house-room-current-room">
+                    <p>{`You are currently in:`}</p>
+                    <p>{`${currentRoomLabel}`}</p>
                 </div>
+                <div className="house-room-connections">
+                    <p>You can go to:</p>
+                    {currentRoomConnections}
+                </div>
+            </div>
+            <div className="house-display-main">
                 <div className="house-room-display">
                     {RoomTemplateComponent(currentRoomMessages[0], currentRoomMessages[1], currentRoomMessages[2])}
                 </div>
                 <div className="house-room-action-output">
                     {actionOutput}
                 </div>
+            </div>
+            <div className="house-actions-inventory-container">
                 <div className="house-room-actions">
-                    <div className={`${currentLocation}-search`}>
-                        <button className={`${currentLocation}-search-button`} onClick={() => handleSearchAction(currentRoomDynamic.actions.search.result)}>
+                    <p>What would you like to do?</p>
+                    <div className={`${currentLocation}-actions action-container`}>
+                        <button className={`${currentLocation}-search-button action-button`} onClick={() => handleSearchAction(currentRoomDynamic.actions.search.result)}>
                             {currentRoomDynamic.actions.search.label}
                         </button>
-                    </div>
-                    {!(currentRoomDynamic.hasItem && hasSearched) ? <></>
-                        :
-                        <div className={`${currentLocation}-use`}>
-                            <button className={`${currentLocation}-use-button`} onClick={() => handleUseAction()}>
+                        {!(currentRoomDynamic.hasItem && hasSearched) ? <></>
+                            :
+                            <button className={`${currentLocation}-use-button action-button`} onClick={() => handleUseAction()}>
                                 {currentRoomDynamic.actions.use.label}
                             </button>
-                        </div>
-                    }
+                        }
+                    </div>
                 </div>
-            </div>
-            <div className="house-room-choice-container">
-                <p>You can go to:</p>
-                {currentRoomConnections}
+                <div className="inventory-display">
+                    <p>Current Inventory:</p>
+                    {currentInventory.join(", ")}
+                </div>
             </div>
         </div>
     )
