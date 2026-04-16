@@ -307,7 +307,7 @@ export const HouseLayout: HouseLayout = {
                 result: "You look around the backyard. It's nice out here, there is a patch of dirt that looks recently disturbed and out of place. Perhaps something was buried here?"
             },
             use: {
-                label: "Pick up shovel",
+                label: "Dig",
                 requiredItem: "Shovel",
                 message: "You plunge the shovel into the dirt. After a few minutes of digging, you hear a loud thump and hit something solid. Clearing the dirt away, you see that it is an old trunk with a padlock on the front."
             },

@@ -1,13 +1,13 @@
 export const RoomTemplate = (messageLocation: string, messageDescription: string, additionalMessage?: string) => {
     return (
-        <div>
-            <h2>{messageLocation}</h2>
-            <h3>{messageDescription}</h3>
+        <div className="house-display-room-info">
+            <text className="room-text-location">{messageLocation}</text>
+            <text className="room-text-description">{messageDescription}</text>
             <br />
             {
                 !messageDescription ?
                     <></> :
-                    <h3>{additionalMessage}</h3>
+                    <text className="room-text-additional">{additionalMessage}</text>
             }
         </div>
     )
