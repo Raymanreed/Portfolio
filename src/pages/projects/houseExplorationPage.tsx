@@ -8,6 +8,14 @@ export const HouseExploration = () => {
     const [actionOutput, setActionOutput] = useState<string>()
     const [hasSearched, setSearched] = useState<boolean>(false)
 
+    const resetAll = () => {
+        setCurrentLocation('entrance')
+        setCurrentInventory([])
+        setActionOutput('')
+        setSearched(false)
+        return;
+    }
+
     const handleNavigation = (connector: string) => {
         setCurrentLocation(connector)
         setActionOutput('')
@@ -56,6 +64,14 @@ export const HouseExploration = () => {
     const currentRoomLabel = currentRoomDynamic.label
     const currentRoomMessages = Object.values(currentRoomDynamic.messages);
 
+    const checkComplete = () => {
+        if (currentLocation != "entrance") return false;
+        if (currentInventory.includes("Trunk") && currentInventory.includes("Trunk Key")) {
+            return true
+        }
+        return false;
+    }
+
     const currentRoomConnections = Object.values(currentRoomDynamic.connectingRooms).map((connections) => {
         return (
             <button className="navigation-button" onClick={() => handleNavigation(connections)}>
@@ -64,6 +80,14 @@ export const HouseExploration = () => {
         )
     })
     
+    if (checkComplete()) {
+        return (
+            <div className="house-container">
+                <h1>You leave the house with the trunk and the key. You found what you came for.</h1>
+                <button onClick={resetAll}>Reset</button>
+            </div>
+        )
+    }
     return (
         <div className="house-container">
             <div className="house-room-choice-container">
