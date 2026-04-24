@@ -1,4 +1,4 @@
-export const RoomTemplate = (messageLocation: string, messageDescription: string, additionalMessage?: string) => {
+export const RoomTemplate = (messageLocation: string, messageDescription: string, location: string, additionalMessage?: string) => {
     return (
         <div className="house-display-room-info">
             <text className="room-text-location">{messageLocation}</text>
@@ -9,6 +9,9 @@ export const RoomTemplate = (messageLocation: string, messageDescription: string
                     <></> :
                     <text className="room-text-additional">{additionalMessage}</text>
             }
+            <div className="location-image-container">
+                <img src={`./${location}-image.jpg`} className="room-image"></img>
+            </div>
         </div>
     )
 }

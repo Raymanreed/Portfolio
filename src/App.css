@@ -141,3 +141,8 @@ body {
 .action-button {
   margin-bottom: 3px;
 }
+
+.room-image {
+  max-height: 350px;
+  max-width: 350px;
+}
