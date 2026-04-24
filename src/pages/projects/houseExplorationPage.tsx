@@ -102,7 +102,7 @@ export const HouseExploration = () => {
             </div>
             <div className="house-display-main">
                 <div className="house-room-display">
-                    {RoomTemplateComponent(currentRoomMessages[0], currentRoomMessages[1], currentRoomMessages[2])}
+                    {RoomTemplateComponent(currentRoomMessages[0], currentRoomMessages[1], currentLocation, currentRoomMessages[2])}
                 </div>
                 <div className="house-room-action-output">
                     {actionOutput}
