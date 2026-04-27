@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { pdfjs, Document, Page } from "react-pdf";
+// import { useState } from 'react';
+import { pdfjs } from "react-pdf";
 import resume from '../assets/ReedGehlingResume2026.pdf'
 import 'react-pdf/dist/Page/AnnotationLayer.css'
 
@@ -9,15 +9,15 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   ).toString();
 
 function FooterComponent() {
-    const [displayResume, setDisplayResume] = useState<Boolean>(false);
+    // const [displayResume, setDisplayResume] = useState<Boolean>(false);
 
     return (
         <div className="footer-container">
             <a href={resume} download>View Resume</a>
-            <div onClick={() => {setDisplayResume(!displayResume)}}>
+            {/* <div onClick={() => {setDisplayResume(!displayResume)}}>
                 {!displayResume ? 'View Resume' : 'Hide'}
             </div>
-            {!displayResume ? <></> :
+             {!displayResume ? <></> :
                 <div>
                     <Document file={resume} className={"resume-renderContainer"}>       
                         <Page 
@@ -28,7 +28,7 @@ function FooterComponent() {
                         />             
                     </Document>
                 </div>
-            }
+            } */}
         </div>
     )
 }
