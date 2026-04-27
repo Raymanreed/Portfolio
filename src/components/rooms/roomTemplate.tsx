@@ -10,7 +10,7 @@ export const RoomTemplate = (messageLocation: string, messageDescription: string
                     <text className="room-text-additional">{additionalMessage}</text>
             }
             <div className="location-image-container">
-                <img src={`${location}-image.jpg`} alt={`${location}-img`} className="room-image"></img>
+                <img src={`./${location}-image.jpg`} alt={`${location}-img`} className="room-image"></img>
             </div>
         </div>
     )
