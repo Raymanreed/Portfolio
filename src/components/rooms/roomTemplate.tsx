@@ -11,7 +11,6 @@ export const RoomTemplate = (messageLocation: string, messageDescription: string
             }
             <div className="location-image-container">
                 <img src={`${location}-image.jpg`} alt={`${location}-img`} className="room-image"></img>
-                <img src="/entrance-image.jpg" alt="testImage"></img>
             </div>
         </div>
     )
