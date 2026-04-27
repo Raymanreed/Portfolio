@@ -3,19 +3,24 @@ import { HouseLayout } from '../../assets/houseLayout';
 import { RoomTemplateComponent } from '../../components/rooms/roomTemplate';
 
 export const HouseExploration = () => {
+    const objectiveMessage = "You are looking for something, it's somewhere in this house. Explore the rooms and find it."
+
     const [currentLocation, setCurrentLocation] = useState<string>('entrance')
     const [currentInventory, setCurrentInventory] = useState<string[]>([])
-    const [actionOutput, setActionOutput] = useState<string>()
-    const [hasSearched, setSearched] = useState<boolean>(false)
+    const [actionOutput, setActionOutput] = useState<string>(objectiveMessage)
+    const [hasSearched, setSearched] = useState<boolean>(true)
 
+
+    // Resets game state to it's original state.
     const resetAll = () => {
         setCurrentLocation('entrance')
         setCurrentInventory([])
-        setActionOutput('')
+        setActionOutput(objectiveMessage)
         setSearched(false)
         return;
     }
 
+    // Changes room to the room chosen, clears action output, and resets searched state.
     const handleNavigation = (connector: string) => {
         setCurrentLocation(connector)
         setActionOutput('')
@@ -28,12 +33,19 @@ export const HouseExploration = () => {
     // Shortened to a variable to make easier to read.
     const currentRoomDynamic = HouseLayout[currentLocation as keyof HouseLayout]
 
+    const currentRoomLabel = currentRoomDynamic.label
+    const currentRoomMessages = Object.values(currentRoomDynamic.messages);
+
     const handleSearchAction = (output: string) => {
         setActionOutput(output)
         setSearched(true)
         return
     }
 
+    // Checks if the room has an item
+    // Checks if the player has the item in the room already
+    // Checks if you have the appropriate item to get the room's item
+    // If you have the required ability to get the room's item, it gives it to you and displays the appropriate message
     const handleUseAction = () => {
         if (!currentRoomDynamic.hasItem) {
             setActionOutput("You don't think that there is anything here.")
@@ -61,9 +73,7 @@ export const HouseExploration = () => {
         return;
     }
 
-    const currentRoomLabel = currentRoomDynamic.label
-    const currentRoomMessages = Object.values(currentRoomDynamic.messages);
-
+    // Checks if you have the appropriate items to complete the game and are in the correct location
     const checkComplete = () => {
         if (currentLocation != "entrance") return false;
         if (currentInventory.includes("Trunk") && currentInventory.includes("Trunk Key")) {
@@ -72,6 +82,7 @@ export const HouseExploration = () => {
         return false;
     }
 
+    // Displays all the appropriate room connections as clickable buttons.
     const currentRoomConnections = Object.values(currentRoomDynamic.connectingRooms).map((connections) => {
         return (
             <button className="navigation-button" onClick={() => handleNavigation(connections)}>
@@ -80,6 +91,7 @@ export const HouseExploration = () => {
         )
     })
     
+    // Ends the game
     if (checkComplete()) {
         return (
             <div className="house-container">
@@ -88,6 +100,8 @@ export const HouseExploration = () => {
             </div>
         )
     }
+
+    // Main gameplay functionality
     return (
         <div className="house-container">
             <div className="house-room-choice-container">
@@ -104,7 +118,7 @@ export const HouseExploration = () => {
                 <div className="house-room-display">
                     {RoomTemplateComponent(currentRoomMessages[0], currentRoomMessages[1], currentLocation, currentRoomMessages[2])}
                 </div>
-                <div className="house-room-action-output">
+                <div className={!hasSearched ? "hide-content" : "house-room-action-output"}>
                     {actionOutput}
                 </div>
             </div>
