@@ -9,7 +9,7 @@ import { HouseExplorationComponent } from "../pages/projects/houseExplorationPag
 function PageNavigation() {
     return (
         <div>
-            <BrowserRouter basename="/portfolio">
+            <BrowserRouter basename="/Portfolio">
                 <Routes>
                     <Route element={<App />}>
                         <Route>
