@@ -95,8 +95,13 @@ export const HouseExploration = () => {
     if (checkComplete()) {
         return (
             <div className="house-container">
-                <h1>You leave the house with the trunk and the key. You found what you came for.</h1>
-                <button onClick={resetAll}>Reset</button>
+                <div className="exploration-end-screen">
+                    <p>You leave the house with the trunk and the key. You found what you came for.</p>
+                    <div className="location-image-container">
+                        <img src={"exploration-end.jpg"} alt="end-screen" className="room-image" />
+                    </div>
+                    <button onClick={resetAll}>Reset</button>
+                </div>
             </div>
         )
     }

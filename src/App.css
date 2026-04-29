@@ -163,3 +163,22 @@ body {
 .room-text {
   margin: 5px 0;
 }
+
+.exploration-end-screen {
+  flex-direction: column;
+  margin: 15px;
+  opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 2s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
