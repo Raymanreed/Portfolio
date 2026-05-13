@@ -5,6 +5,7 @@ import LoopDemoPage from "../pages/projects/loopingDemoPage.tsx";
 import FauxMemorial from "../pages/projects/fauxMemorialPage.tsx";
 import StoryboardTool from "../pages/projects/storyboardHelper.tsx";
 import { HouseExplorationComponent } from "../pages/projects/houseExplorationPage.tsx";
+import ClickerGame from "../pages/projects/clickerGamePage.tsx";
 
 function PageNavigation() {
     return (
@@ -18,6 +19,7 @@ function PageNavigation() {
                             <Route path="memorial" element={<FauxMemorial />} />
                             <Route path="storyboard" element={<StoryboardTool />} />
                             <Route path="house" element={<HouseExplorationComponent />} />
+                            <Route path="clicker" element={<ClickerGame />} />
                         </Route>
                     </Route>
                 </Routes>
