@@ -9,6 +9,7 @@ function ProjectHome() {
                 <NavLink to="memorial"className={"project-navigation"}>RIP</NavLink>
                 <NavLink to="storyboard" className={"project-navigation"}>Chart a story!</NavLink>
                 <NavLink to="house" className={"project-navigation"}>Explore a house!</NavLink>
+                <NavLink to="clicker" className={"project-navigation"}>Clicker Game!</NavLink>
             </div>
         </div>
     )
