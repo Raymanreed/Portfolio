@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 function ClickerGame() {
     const [baseClickCount, setBaseClickCount] = useState<number>(0);
+    // @ts-expect-error
     const [baseClickIncreaseAmount, setBaseClickIncreaseAmount] = useState<number>(1);
 
     const [autoClickerCount, setAutoClickerCount] = useState<number>(0);
