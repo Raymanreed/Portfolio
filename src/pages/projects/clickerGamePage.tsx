@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react";
 
 function ClickerGame() {
     const [baseClickCount, setBaseClickCount] = useState<number>(0);
-    // @ts-expect-error
     const [baseClickIncreaseAmount, setBaseClickIncreaseAmount] = useState<number>(1);
+    const [baseClickIncreaseCost, setBaseClickIncreaseCost] = useState<number>(5);
 
     const [autoClickerCount, setAutoClickerCount] = useState<number>(0);
     const [autoClickerClickAmount, setAutoClickerClickAmount] = useState<number>(1)
@@ -17,6 +17,18 @@ function ClickerGame() {
     const increaseBaseClickCount = () => {
         setBaseClickCount(baseClickCount + baseClickIncreaseAmount)
         return;
+    }
+
+    const allowBaseClickIncreasePurchase = () => {
+        if (!baseClickIncreaseCost) return;
+        if (baseClickIncreaseCost > baseClickCount) return true;
+        return false;
+    }
+
+    const baseClickIncreaseButton = () => {
+        setBaseClickIncreaseAmount(baseClickIncreaseAmount + 1);
+        setBaseClickCount(baseClickCount - baseClickIncreaseCost);
+        setBaseClickIncreaseCost(baseClickIncreaseCost + Math.round(baseClickIncreaseCost * 5))
     }
 
 
@@ -71,6 +83,7 @@ function ClickerGame() {
 
     const autoClickerTimingButton = () => {
         setAutoClickerTiming(autoClickerTiming - 100);
+        setBaseClickCount(baseClickCount - autoClickerTimingCost);
         setAutoClickerTimingCost(autoClickerTimingCost + Math.round(autoClickerTimingCost * 1.5))
     }
 
@@ -90,12 +103,13 @@ function ClickerGame() {
 
     const autoClickerClickAmountButton = () => {
         setAutoClickerClickAmount(autoClickerClickAmount + 1);
+        setBaseClickCount(baseClickCount - autoClickerClickAmountCost);
         setAutoClickerClickAmountCost(autoClickerClickAmountCost + Math.round(autoClickerClickAmountCost * 0.5));
     }
 
     const allowAutoClickerClickAmountPurchase = () => {
         if (!autoClickerClickAmountCost) return;
-        if (autoClickerClickAmount === 10) return true;
+        if (autoClickerClickAmount === 100) return true;
         if (autoClickerClickAmountCost > baseClickCount) return true;
         return false;
     }
@@ -105,34 +119,35 @@ function ClickerGame() {
         refreshAutoClickerIntervalId()
     }, [autoClickerClickAmount])
 
-    console.log(autoClickerClickAmount)
-
     /* ---END AUTOCLICKER FUNCTIONALITY--- */
 
     return (
         <div>
-            <h3>{baseClickCount}</h3>
-            <h4>{`You have ${autoClickerCount} auto clickers`}</h4>
+            <h3>{`You have clicked ${baseClickCount} times.`}</h3>
+            <h4>{`You have ${autoClickerCount} auto clickers clicking for ${autoClickerClickAmount} clicks every ${autoClickerTiming}ms`}</h4>
             <br />
             <div className="clickerGame-button-house">
                 <button onClick={increaseBaseClickCount}>Click!</button>
+                <button onClick={baseClickIncreaseButton} disabled={allowBaseClickIncreasePurchase()}>
+                    {`Increase Click Power! Cost: ${baseClickIncreaseCost}`}
+                </button>
                 <button
                     onClick={autoClickerBuyButton}
                     disabled={!allowAutoClickerBuy()}
                     >
-                        Get an Auto Clicker!
+                        {`Get an Auto Clicker! Cost: ${autoClickerCost}`}
                 </button>
                 <button
                     onClick={autoClickerTimingButton}
                     disabled={allowAutoClickingTimingPurchase()}
                     >
-                        Speed up your Auto Clicker!
+                        {`Speed up your Auto Clicker! Cost: ${autoClickerTimingCost}`}
                 </button>
                 <button
                     onClick={autoClickerClickAmountButton}
                     disabled={allowAutoClickerClickAmountPurchase()}
                     >
-                        Power up your Auto Clicker!
+                        {`Power up your Auto Clicker! Cost: ${autoClickerClickAmountCost}`}
                 </button>
             </div>
             <div className="clickerGame-autoClicker-startStop-house">
